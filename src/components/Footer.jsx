@@ -6,8 +6,29 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import cLogo from "../assets/images/c-trybe-logo.png";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../firebase"; // import your firebase config
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) return alert("Please enter your email");
+
+    try {
+      await addDoc(collection(db, "subscribers"), {
+        email,
+        subscribedAt: Timestamp.now(),
+      });
+      alert("Subscribed successfully!");
+      setEmail("");
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Something went wrong");
+    }
+  };
   return (
     <footer className="bg-[#f5f4ee] text- md:mt-20 mt-[500px] py-12 shadow-2xl">
       <div className="max-w-6xl mx-auto px-4">
@@ -78,18 +99,26 @@ const Footer = () => {
           </div>
 
           {/* Newsletter Signup */}
-          <div className="flex flex-col">
-            <h4 className="text-lg font-semibold text-gray-300 mb-4">
+          <div>
+            <h4 className="text-lg font-semibold mb-4">
               Subscribe to Our Newsletter
             </h4>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-2 rounded-lg bg-gray-800 text-white border-2 border-gray-700 focus:outline-none focus:border-[#9d9577] mb-4"
-            />
-            <button className="bg-[#9d9577] text-white py-2 px-6 rounded-lg hover:bg-[#fff] hover:text-[#9d9577]">
-              Subscribe
-            </button>
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="px-4 py-2 rounded-lg bg-gray-800 text-white border-2 border-gray-700 focus:outline-none focus:border-[#9d9577] mb-4"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-[#9d9577] hover:bg-white hover:text-[#9d9577] text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
 
