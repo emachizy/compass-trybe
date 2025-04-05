@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+.header {
+  padding-inline: 20px;
+}
+
+.header h2 {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.header p {
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Change pagination bullet color */
+.swiper-pagination-bullet {
+  background-color: #9d9577 !important; /* Change to your preferred color */
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* Active bullet color */
+.swiper-pagination-bullet-active {
+  background-color: #f59e0b !important; /* Change to your brand color */
+  opacity: 1;
+}
+
+/* Default arrow color */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #9d9577 !important; /* Change to your preferred color */
+  transition: color 0.3s ease;
+  background-color: #fff;
+  border-radius: 7%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Change color on hover */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #fff !important; /* Change to your brand color */
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.nav {
+  padding-block: 20px;
+  padding-inline: 15px;
+}
+
+.mobile-nav {
+  padding: 10px;
+}
+
+.book-now {
+  padding-inline: 16px;
+  padding-block: 8px;
+  margin-top: 20px;
+}

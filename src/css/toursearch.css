@@ -1,0 +1,24 @@
+form {
+  padding: 24px;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+form input {
+  padding-block: 8px;
+  padding-inline: 16px;
+}
+form select {
+  padding-block: 8px;
+  padding-inline: 16px;
+}
+form button {
+  padding-block: 8px;
+  padding-inline: 24px;
+}
+
+@media (max-width: 768px) {
+  form {
+    padding: 16px;
+  }
+}

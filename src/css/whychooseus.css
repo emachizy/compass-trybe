@@ -1,0 +1,16 @@
+section {
+  padding-block: 48px;
+}
+
+.why-choose-us > div {
+  padding-inline: 16px;
+  margin: 0 auto;
+}
+
+.why-choose-us > div h2 {
+  margin-bottom: 32px;
+}
+
+.why-choose-us > div > div > div {
+  padding: 24px;
+}
