@@ -6,8 +6,8 @@ import {
   FaSmile,
 } from "react-icons/fa";
 
-// import cLogo from "../assets/images/c-trybe-logo.png";
-import itineraryImg2 from "../assets/images/itinerary-images/itineraryImg2.jpg";
+import cLogo from "../assets/images/c-trybe-logo.png";
+// import itineraryImg2 from "../assets/images/itinerary-images/itineraryImg2.jpg";
 
 const stats = [
   {
@@ -37,7 +37,7 @@ const stats = [
 ];
 
 const CounterSection = () => {
-  const whatsappNumber = "23409066060938"; // Replace with your actual number
+  const whatsappNumber = "23409066060938";
   const message = "Hello! I'm interested in booking a tour."; // Custom message
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     message
@@ -47,7 +47,7 @@ const CounterSection = () => {
       {/* Background image with overlay */}
       <div
         className="h-[300px] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${itineraryImg2})` }} // Replace with your image path
+        style={{ backgroundImage: `url(${cLogo})` }}
       >
         <div className="absolute inset-0 bg-black/50 bg-opacity-50">
           <div className="flex flex-col justify-center items-center h-full">

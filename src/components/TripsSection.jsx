@@ -1,4 +1,15 @@
 import { useState, useEffect } from "react";
+import { db } from "../firebase";
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  arrayUnion,
+  increment,
+} from "firebase/firestore";
 import itineraryImg1 from "../assets/images/itinerary-images/itineraryImg1.jpg";
 import itineraryImg2 from "../assets/images/itinerary-images/itineraryImg2.jpg";
 import itineraryImg3 from "../assets/images/itinerary-images/itineraryImg3.jpg";
@@ -76,66 +87,67 @@ const TripsSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const getRelativeTime = (timestamp) => {
-    const diff = (new Date() - new Date(timestamp)) / 1000; // in seconds
-
+    const diff = (new Date() - new Date(timestamp)) / 1000;
     if (diff < 60) return "Just now";
     if (diff < 3600) return `${Math.floor(diff / 60)} min ago`;
     if (diff < 86400) return `${Math.floor(diff / 3600)} hour(s) ago`;
-
     const days = Math.floor(diff / 86400);
     return days === 1 ? "Yesterday" : `${days} day(s) ago`;
   };
 
-  // Load comments from localStorage per trip
   useEffect(() => {
-    if (selectedTrip) {
-      const saved = localStorage.getItem(`comments-${selectedTrip.id}`);
-      setComments(saved ? JSON.parse(saved) : []);
+    if (selectedTrip && db) {
+      const tripId = selectedTrip.id.toString();
+      const commentsRef = collection(db, "trips", tripId, "comments");
+      const unsubscribe = onSnapshot(commentsRef, (snapshot) => {
+        const fetchedComments = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+          showReply: false,
+          replyInput: "",
+        }));
+        setComments(fetchedComments);
+      });
+      return () => unsubscribe();
     }
-  }, [selectedTrip]);
+  }, [selectedTrip, db]);
 
-  // Save comments to localStorage when comments change
-  useEffect(() => {
-    if (selectedTrip) {
-      localStorage.setItem(
-        `comments-${selectedTrip.id}`,
-        JSON.stringify(comments)
-      );
-    }
-  }, [comments, selectedTrip]);
-
-  const handleAddComment = () => {
+  const handleAddComment = async () => {
     if (!input.trim()) return;
-
-    const newComment = {
-      text: input.trim(),
-      timestamp: new Date().toISOString(), // store time
-      likes: 0,
-      reaction: null,
-      replies: [],
-    };
+    const tripId = selectedTrip.id.toString();
+    const commentsRef = collection(db, "trips", tripId, "comments");
 
     if (editingIndex !== null) {
-      const updated = [...comments];
-      updated[editingIndex].text = input.trim();
-      updated[editingIndex].timestamp = newComment.timestamp; // update timestamp on edit
-      setComments(updated);
+      const commentToEdit = comments[editingIndex];
+      const commentRef = doc(db, "trips", tripId, "comments", commentToEdit.id);
+      await updateDoc(commentRef, {
+        text: input.trim(),
+        timestamp: new Date().toISOString(),
+      });
       setEditingIndex(null);
     } else {
-      setComments([...comments, newComment]);
+      const newComment = {
+        text: input.trim(),
+        timestamp: new Date().toISOString(),
+        likes: 0,
+        reaction: null,
+        replies: [],
+      };
+      await addDoc(commentsRef, newComment);
     }
-
     setInput("");
   };
 
   const handleEdit = (index) => {
-    setInput(comments[index]);
+    setInput(comments[index].text);
     setEditingIndex(index);
   };
 
-  const handleDelete = (index) => {
-    const updated = comments.filter((_, i) => i !== index);
-    setComments(updated);
+  const handleDelete = async (index) => {
+    const commentToDelete = comments[index];
+    const tripId = selectedTrip.id.toString();
+    const commentRef = doc(db, "trips", tripId, "comments", commentToDelete.id);
+    await deleteDoc(commentRef);
   };
 
   const handleBack = () => {
@@ -145,54 +157,63 @@ const TripsSection = () => {
     setEditingIndex(null);
   };
 
-  const toggleLike = (index) => {
-    const updated = [...comments];
-    updated[index].likes = (updated[index].likes || 0) + 1;
-    setComments(updated);
+  const toggleLike = async (index) => {
+    const comment = comments[index];
+    const tripId = selectedTrip.id.toString();
+    const commentRef = doc(db, "trips", tripId, "comments", comment.id);
+    await updateDoc(commentRef, {
+      likes: increment(1),
+    });
   };
 
-  const toggleReaction = (index, emoji) => {
-    const updated = [...comments];
-    updated[index].reaction = updated[index].reaction === emoji ? null : emoji;
-    setComments(updated);
+  const toggleReaction = async (index, emoji) => {
+    const comment = comments[index];
+    const tripId = selectedTrip.id.toString();
+    const commentRef = doc(db, "trips", tripId, "comments", comment.id);
+    const newReaction = comment.reaction === emoji ? null : emoji;
+    await updateDoc(commentRef, {
+      reaction: newReaction,
+    });
   };
 
   const toggleReply = (index) => {
-    const updated = [...comments];
-    updated[index].showReply = !updated[index].showReply;
-    setComments(updated);
+    setComments((prevComments) =>
+      prevComments.map((comment, i) =>
+        i === index ? { ...comment, showReply: !comment.showReply } : comment
+      )
+    );
   };
 
   const updateReplyInput = (index, value) => {
-    const updated = [...comments];
-    updated[index].replyInput = value;
-    setComments(updated);
+    setComments((prevComments) =>
+      prevComments.map((comment, i) =>
+        i === index ? { ...comment, replyInput: value } : comment
+      )
+    );
   };
 
-  const addReply = (index) => {
-    const updated = [...comments];
-    if (!updated[index].replyInput?.trim()) return;
-
-    updated[index].replies = [
-      ...(updated[index].replies || []),
-      updated[index].replyInput,
-    ];
-    updated[index].replyInput = "";
-    setComments(updated);
+  const addReply = async (index) => {
+    const comment = comments[index];
+    if (!comment.replyInput?.trim()) return;
+    const tripId = selectedTrip.id.toString();
+    const commentRef = doc(db, "trips", tripId, "comments", comment.id);
+    await updateDoc(commentRef, {
+      replies: arrayUnion(comment.replyInput.trim()),
+    });
+    setComments((prevComments) =>
+      prevComments.map((c, i) => (i === index ? { ...c, replyInput: "" } : c))
+    );
   };
 
   if (selectedTrip) {
     return (
       <section className="max-w-4xl mx-auto py-10 px-4">
-        {/* Back Button */}
         <button
           onClick={handleBack}
           className="bg-gray-700 text-white px-4 py-2 rounded-md mb-4"
         >
           🔙 Back to Trips
         </button>
-
-        {/* Trip Details */}
         <h1 className="text-3xl font-bold text-gray-800">
           {selectedTrip.name}
         </h1>
@@ -202,8 +223,6 @@ const TripsSection = () => {
           alt={selectedTrip.name}
           className="w-full h-64 object-cover rounded-lg mt-6"
         />
-
-        {/* Gallery */}
         <div className="mt-6 grid grid-cols-3 gap-4">
           {selectedTrip.gallery.map((img, i) => (
             <div
@@ -222,20 +241,14 @@ const TripsSection = () => {
             </div>
           ))}
         </div>
-
-        {/* Image Modal */}
-
         {selectedImage && (
           <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-            {/* Close Button */}
             <button
               className="absolute top-6 right-6 text-white text-3xl font-bold"
               onClick={() => setSelectedImage(null)}
             >
-              &times;
+              ×
             </button>
-
-            {/* Left Arrow */}
             {currentImageIndex > 0 && (
               <button
                 className="absolute left-6 text-white text-4xl"
@@ -245,11 +258,9 @@ const TripsSection = () => {
                   setSelectedImage(selectedTrip.gallery[newIndex]);
                 }}
               >
-                &#10094;
+                ❮
               </button>
             )}
-
-            {/* Image */}
             <div className="text-center">
               <img
                 src={selectedImage}
@@ -260,8 +271,6 @@ const TripsSection = () => {
                 Image {currentImageIndex + 1} of {selectedTrip.gallery.length}
               </p>
             </div>
-
-            {/* Right Arrow */}
             {currentImageIndex < selectedTrip.gallery.length - 1 && (
               <button
                 className="absolute right-6 text-white text-4xl"
@@ -271,13 +280,11 @@ const TripsSection = () => {
                   setSelectedImage(selectedTrip.gallery[newIndex]);
                 }}
               >
-                &#10095;
+                ❯
               </button>
             )}
           </div>
         )}
-
-        {/* Comment Section */}
         <div className="mt-10">
           <h3 className="text-2xl font-semibold mb-4 text-gray-700">
             Comments
@@ -296,27 +303,28 @@ const TripsSection = () => {
               {editingIndex !== null ? "Update" : "Post"}
             </button>
           </div>
-
           {comments.length === 0 ? (
             <p className="text-gray-500">No comments yet.</p>
           ) : (
             <ul className="space-y-3">
-              {comments.map((commentObj, i) => (
-                <li key={i} className="bg-white p-4 rounded shadow">
-                  {/* Main Comment & Controls */}
+              {comments.map((commentObj) => (
+                <li key={commentObj.id} className="bg-white p-4 rounded shadow">
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="font-medium">{commentObj.text}</p>
                       <p className="text-xs text-gray-400 mt-1">
                         {getRelativeTime(commentObj.timestamp)}
                       </p>
-
-                      {/* Reactions */}
                       <div className="flex space-x-2 mt-2">
                         {["😍", "👍", "😂", "🤯", "👎"].map((emoji) => (
                           <button
                             key={emoji}
-                            onClick={() => toggleReaction(i, emoji)}
+                            onClick={() =>
+                              toggleReaction(
+                                comments.indexOf(commentObj),
+                                emoji
+                              )
+                            }
                             className={`text-xl ${
                               commentObj.reaction === emoji ? "scale-110" : ""
                             }`}
@@ -325,36 +333,45 @@ const TripsSection = () => {
                           </button>
                         ))}
                       </div>
-
-                      {/* Likes & Replies */}
                       <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
-                        <button onClick={() => toggleLike(i)}>
+                        <button
+                          onClick={() =>
+                            toggleLike(comments.indexOf(commentObj))
+                          }
+                        >
                           ❤️ {commentObj.likes || 0}
                         </button>
-                        <button onClick={() => toggleReply(i)}>💬 Reply</button>
+                        <button
+                          onClick={() =>
+                            toggleReply(comments.indexOf(commentObj))
+                          }
+                        >
+                          💬 Reply
+                        </button>
                       </div>
-
-                      {/* Reply Input */}
                       {commentObj.showReply && (
                         <div className="mt-2">
                           <input
                             value={commentObj.replyInput || ""}
                             onChange={(e) =>
-                              updateReplyInput(i, e.target.value)
+                              updateReplyInput(
+                                comments.indexOf(commentObj),
+                                e.target.value
+                              )
                             }
                             placeholder="Write a reply..."
                             className="border rounded p-1 text-sm"
                           />
                           <button
                             className="ml-2 text-green-600 text-sm"
-                            onClick={() => addReply(i)}
+                            onClick={() =>
+                              addReply(comments.indexOf(commentObj))
+                            }
                           >
                             Send
                           </button>
                         </div>
                       )}
-
-                      {/* Replies List */}
                       {commentObj.replies?.length > 0 && (
                         <ul className="mt-3 space-y-2 text-sm pl-4 border-l border-gray-300">
                           {commentObj.replies.map((reply, rIdx) => (
@@ -365,17 +382,17 @@ const TripsSection = () => {
                         </ul>
                       )}
                     </div>
-
-                    {/* Edit / Delete Buttons */}
                     <div className="flex gap-2 text-sm ml-4">
                       <button
-                        onClick={() => handleEdit(i)}
+                        onClick={() => handleEdit(comments.indexOf(commentObj))}
                         className="text-blue-600 hover:underline"
                       >
                         Edit
                       </button>
                       <button
-                        onClick={() => handleDelete(i)}
+                        onClick={() =>
+                          handleDelete(comments.indexOf(commentObj))
+                        }
                         className="text-red-600 hover:underline"
                       >
                         Delete
@@ -391,7 +408,6 @@ const TripsSection = () => {
     );
   }
 
-  // Trip List View
   return (
     <section className="py-16 bg-gray-100">
       <div className="container mx-auto px-6">
@@ -410,13 +426,10 @@ const TripsSection = () => {
                 className="w-full h-64 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                 style={{ backgroundImage: `url(${trip.image})` }}
               ></div>
-
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-500"></div>
-
               <div className="absolute top-4 right-4 bg-white text-gray-800 text-sm font-semibold px-3 py-1 rounded-full shadow-md transition-all duration-500 group-hover:bg-[#9d9577] group-hover:text-white">
                 {trip.tours} Tours
               </div>
-
               <div className="absolute bottom-4 left-4">
                 <h3 className="text-white text-xl font-bold transition-transform duration-500 group-hover:translate-y-2">
                   {trip.name}
