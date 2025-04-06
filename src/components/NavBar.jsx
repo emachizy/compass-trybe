@@ -62,7 +62,7 @@ const NavBar = () => {
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-[#fff] hover:text-[#9d9577] transition"
+          className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-[#fff] hover:text-[#9d9577] transition cursor-pointer"
         >
           Keep me informed
         </button>
@@ -123,19 +123,25 @@ const NavBar = () => {
           >
             Contact
           </NavLink>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-[#fff] hover:text-[#9d9577] transition"
+          >
+            Keep me informed
+          </button>
         </nav>
       </div>
       {/* Subscribe Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[200]">
+        <div className="fixed inset-0 bg-black/50 opacity-[97%] flex items-center justify-center z-[200]">
           <div className="bg-white rounded-2xl p-8 w-full max-w-md mx-auto shadow-lg relative">
             <button
-              className="absolute top-4 right-4 text-gray-700 hover:text-red-500"
+              className="absolute top-4 right-4 text-gray-700 hover:text-[#9d9577] cursor-auto"
               onClick={() => setIsModalOpen(false)}
             >
               <X size={24} />
             </button>
-            <h2 className="text-xl font-semibold mb-4 text-gray-800">
+            <h2 className="text-xl mb-4 text-gray-800 capitalize text-center font-bold">
               Stay in the loop
             </h2>
             <form
@@ -151,7 +157,7 @@ const NavBar = () => {
               />
               <button
                 type="submit"
-                className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-white hover:text-[#9d9577] border hover:border-[#9d9577] transition"
+                className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-white hover:text-[#9d9577] border hover:border-[#9d9577] transition cursor-pointer"
               >
                 Subscribe
               </button>
