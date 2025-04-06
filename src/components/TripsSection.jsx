@@ -212,7 +212,7 @@ const TripsSection = () => {
           onClick={handleBack}
           className="bg-gray-700 text-white px-4 py-2 rounded-md mb-4"
         >
-          <span className="bg-[#fff] rounded-xl p-0.5">🔙</span> Back to Trips
+          <span className="bg-[#fff] rounded-xl p-1">🔙</span> Back to Trips
         </button>
         <h1 className="text-3xl font-bold text-gray-800">
           {selectedTrip.name}
