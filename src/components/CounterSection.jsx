@@ -49,7 +49,7 @@ const CounterSection = () => {
         className="h-[300px] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${itineraryImg2})` }} // Replace with your image path
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50">
+        <div className="absolute inset-0 bg-black/50 bg-opacity-50">
           <div className="flex flex-col justify-center items-center h-full">
             <p className="text-[#9d9577]">Get offer now</p>
             <h1 className="text-4xl font-bold text-white text-center">

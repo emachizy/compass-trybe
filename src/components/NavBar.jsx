@@ -2,9 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import cTrybeLogo from "../assets/images/c-trybe-logo.png";
+import { subscribeToNewsletter } from "../utils/subscribe";
 
 const NavBar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [email, setEmail] = useState("");
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -21,6 +24,19 @@ const NavBar = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobileNavOpen]);
+
+  const handleModalSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) return alert("Please enter your email");
+
+    try {
+      const msg = await subscribeToNewsletter(email);
+      alert(msg);
+      setEmail("");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <>
@@ -44,7 +60,10 @@ const NavBar = () => {
             Contact
           </NavLink>
         </div>
-        <button className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-[#fff] hover:text-[#9d9577] transition">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-[#fff] hover:text-[#9d9577] transition"
+        >
           Keep me informed
         </button>
       </nav>
@@ -106,6 +125,40 @@ const NavBar = () => {
           </NavLink>
         </nav>
       </div>
+      {/* Subscribe Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[200]">
+          <div className="bg-white rounded-2xl p-8 w-full max-w-md mx-auto shadow-lg relative">
+            <button
+              className="absolute top-4 right-4 text-gray-700 hover:text-red-500"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <X size={24} />
+            </button>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">
+              Stay in the loop
+            </h2>
+            <form
+              onSubmit={handleModalSubscribe}
+              className="flex flex-col space-y-4"
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#9d9577]"
+              />
+              <button
+                type="submit"
+                className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-white hover:text-[#9d9577] border hover:border-[#9d9577] transition"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       <Outlet />
     </>

@@ -6,8 +6,9 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import cLogo from "../assets/images/c-trybe-logo.png";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db } from "../firebase"; // import your firebase config
+import { subscribeToNewsletter } from "../utils/subscribe";
+// import { collection, addDoc, Timestamp } from "firebase/firestore";
+// import { db } from "../firebase"; // import your firebase config
 import { useState } from "react";
 
 const Footer = () => {
@@ -18,15 +19,11 @@ const Footer = () => {
     if (!email) return alert("Please enter your email");
 
     try {
-      await addDoc(collection(db, "subscribers"), {
-        email,
-        subscribedAt: Timestamp.now(),
-      });
-      alert("Subscribed successfully!");
+      const msg = await subscribeToNewsletter(email);
+      alert(msg);
       setEmail("");
     } catch (error) {
-      console.error("Error adding document: ", error);
-      alert("Something went wrong");
+      alert(error.message);
     }
   };
   return (
