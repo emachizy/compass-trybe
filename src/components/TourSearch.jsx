@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../css/toursearch.css";
+import { toast } from "sonner";
 
 const TourSearch = () => {
   const [location, setLocation] = useState("");
@@ -11,7 +12,7 @@ const TourSearch = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (!location || !date || !tourType) {
-      alert("Please fill all fields before searching!");
+      toast.error("Please fill all fields before searching!");
       return;
     }
 

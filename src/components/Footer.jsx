@@ -10,24 +10,29 @@ import { subscribeToNewsletter } from "../utils/subscribe";
 // import { collection, addDoc, Timestamp } from "firebase/firestore";
 // import { db } from "../firebase"; // import your firebase config
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (!email) return alert("Please enter your email");
+    if (!email) toast.error("Please enter your email");
+
+    setLoading(true);
 
     try {
       const msg = await subscribeToNewsletter(email);
-      alert(msg);
+      toast.success(msg);
       setEmail("");
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
+    setLoading(false);
   };
   return (
-    <footer className="bg-[#f5f4ee] text- md:mt-20 mt-[500px] py-12 shadow-2xl">
+    <footer className="bg-[#f5f4ee] text- md:mt-20 mt-[50px] py-12 shadow-2xl">
       <div className="max-w-6xl mx-auto px-4">
         {/* Top Section - Logo & Links */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
@@ -111,9 +116,10 @@ const Footer = () => {
               />
               <button
                 type="submit"
+                disabled={loading}
                 className="bg-[#9d9577] hover:bg-white hover:text-[#9d9577] text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300"
               >
-                Subscribe
+                {loading ? "Subscribing" : "Subscribe"}
               </button>
             </form>
           </div>

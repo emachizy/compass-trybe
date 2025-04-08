@@ -3,11 +3,14 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import cTrybeLogo from "../assets/images/c-trybe-logo.png";
 import { subscribeToNewsletter } from "../utils/subscribe";
+import { toast } from "sonner";
 
 const NavBar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -27,15 +30,18 @@ const NavBar = () => {
 
   const handleModalSubscribe = async (e) => {
     e.preventDefault();
-    if (!email) return alert("Please enter your email");
+    if (!email) return toast.error("Please enter your email");
+
+    setLoading(true);
 
     try {
       const msg = await subscribeToNewsletter(email);
-      alert(msg);
+      toast.success(msg);
       setEmail("");
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
+    setLoading(false);
   };
 
   return (
@@ -157,9 +163,10 @@ const NavBar = () => {
               />
               <button
                 type="submit"
+                disabled={loading}
                 className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-white hover:text-[#9d9577] border hover:border-[#9d9577] transition cursor-pointer"
               >
-                Subscribe
+                {loading ? "Subscribing" : "Subscribe"}
               </button>
             </form>
           </div>

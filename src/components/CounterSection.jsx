@@ -31,7 +31,7 @@ const stats = [
   {
     id: 4,
     label: "Happy Travelers",
-    value: 1200,
+    value: 2500,
     icon: <FaSmile className="text-3xl text-[#9d9577]" />,
   },
 ];
@@ -43,15 +43,15 @@ const CounterSection = () => {
     message
   )}`;
   return (
-    <section className="relative">
+    <section className="">
       {/* Background image with overlay */}
       <div
         className="h-[300px] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${cLogo})` }}
+        style={{ backgroundImage: `url(${cLogo})`, backgroundSize: "cover" }}
       >
         <div className="absolute inset-0 bg-black/50 bg-opacity-50">
           <div className="flex flex-col justify-center items-center h-full">
-            <p className="text-[#9d9577]">Get offer now</p>
+            <p className="text-white">Get offer now</p>
             <h1 className="text-4xl font-bold text-white text-center">
               Ultimate Adventure Awaits!
             </h1>
@@ -70,7 +70,7 @@ const CounterSection = () => {
       </div>
 
       {/* Stat cards overlapping from below */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-4">
+      <div className="-mt-3.5 w-full max-w-6xl px-4 z-50 relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat) => (
             <div
@@ -81,7 +81,7 @@ const CounterSection = () => {
                 {stat.icon}
               </div>
               <h3 className="text-3xl font-bold text-gray-800">
-                <CountUp end={stat.value} duration={7} />
+                <CountUp end={stat.value} duration={10} />
               </h3>
               <p className="text-gray-600 mt-1 font-medium">{stat.label}</p>
             </div>
@@ -90,7 +90,7 @@ const CounterSection = () => {
       </div>
 
       {/* Spacer to prevent overlap */}
-      <div className="pt-40" />
+      {/* <div className="md:pt-40 pt-[280px]" /> */}
     </section>
   );
 };

@@ -5,11 +5,14 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { Toaster } from "sonner";
 // import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
+      <Toaster position="top-right" offset={0} className="!py-0" richColors />
+
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />

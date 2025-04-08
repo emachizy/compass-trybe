@@ -1,10 +1,11 @@
 // utils/subscribe.js
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "../firebase";
+import { toast } from "sonner";
 
 export const subscribeToNewsletter = async (email) => {
   if (!email) {
-    throw new Error("Please enter your email");
+    throw new toast.error("Please enter your email");
   }
 
   try {
@@ -15,6 +16,6 @@ export const subscribeToNewsletter = async (email) => {
     return "Subscribed successfully!";
   } catch (error) {
     console.error("Error adding subscriber: ", error);
-    throw new Error("Something went wrong");
+    throw new toast.error("Something went wrong");
   }
 };

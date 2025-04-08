@@ -28,10 +28,17 @@ const About = () => {
               Navigating the World, One Journey at a Time
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              At Compass Trybe, we specialize in crafting unforgettable
-              adventures, connecting explorers with incredible destinations, and
-              making every journey meaningful. From curated tours to
-              community-driven campaigns, we are redefining how people travel.
+              The Compass carries a special meaning for those who wear it.
+              Perhaps it is a reminder of traveling, the direction life takes
+              you or how you find the one or the things you love. The Compass
+              Trybe is a vibrant community where we share, create memories,
+              network, and live life to the fullest. We celebrate tourism, arts,
+              culture, and adventures that bring us closer to our world and
+              ourselves. At The Compass Trybe, we specialize in crafting
+              unforgettable adventures, connecting explorers with incredible
+              destinations, and making every journey meaningful. From curated
+              tours to community-driven campaigns, we are redefining how people
+              travel.
             </p>
           </div>
 
