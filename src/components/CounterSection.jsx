@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa";
 
 import cLogo from "../assets/images/c-trybe-logo.png";
-// import itineraryImg2 from "../assets/images/itinerary-images/itineraryImg2.jpg";
 
 const stats = [
   {

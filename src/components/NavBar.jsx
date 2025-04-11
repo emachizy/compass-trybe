@@ -55,14 +55,20 @@ const NavBar = () => {
             className="w-24 cursor-pointer"
           />
         </Link>
-        <div className="flex items-center space-x-6 text-gray-700 font-medium">
-          <NavLink to="/" className="hover:text-[#9d9577] transition">
+        <div className="flex justify-around gap-8 items-center space-x-6 text-gray-700 font-medium">
+          <NavLink to="/" className="hover:text-[#9d9577] transition text-xl">
             Home
           </NavLink>
-          <NavLink to="/about" className="hover:text-[#9d9577] transition">
+          <NavLink
+            to="/about"
+            className="hover:text-[#9d9577] transition text-xl"
+          >
             About
           </NavLink>
-          <NavLink to="/contact" className="hover:text-[#9d9577] transition">
+          <NavLink
+            to="/contact"
+            className="hover:text-[#9d9577] transition text-xl"
+          >
             Contact
           </NavLink>
         </div>
