@@ -4,48 +4,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade"; // Import fade effect CSS
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
-
-import sliderImg1 from "../assets/images/header-images/sliderImg1.jpg";
-import sliderImg2 from "../assets/images/header-images/sliderImg2.jpg";
-import sliderImg3 from "../assets/images/header-images/sliderImg3.jpg";
-import sliderImg4 from "../assets/images/header-images/sliderImg4.jpg";
-import sliderImg5 from "../assets/images/header-images/sliderImg5.jpg";
+import { slides } from "../../data/data";
 
 // import TourSearch from "./TourSearch";
 
 const ImageSlider = () => {
-  const slides = [
-    {
-      image: sliderImg1,
-      text: " Make the most of your time here, We are all tourists.",
-      author: "Obiozo Onyeka",
-    },
-    {
-      image: sliderImg2,
-      text: "Adventure Awaits",
-      subtext:
-        "Embrace the thrill of the unknown — your next great story is just one trip away.",
-    },
-    {
-      image: sliderImg3,
-      text: "Discover New Places",
-      subtext:
-        "Venture beyond the familiar and find beauty in every corner of the world.",
-    },
-    {
-      image: sliderImg4,
-      text: "Unforgettable Experiences",
-      subtext:
-        "Dive into rich cultures, scenic wonders, and moments that leave a lasting imprint.",
-    },
-    {
-      image: sliderImg5,
-      text: "Your Journey Begins Here",
-      subtext:
-        "Every path starts with a single step — start yours with us today.",
-    },
-  ];
-
   const whatsappNumber = "23409066060938"; // Replace with your actual number
   const message = "Hello! I'm interested in booking a tour."; // Custom message
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

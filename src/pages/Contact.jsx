@@ -127,7 +127,7 @@ const Contact = () => {
             </div>
           </div>
           {/* Google map iframe */}
-          <div className="overflow-hidden rounded-2xl shadow-md">
+          <div className="overflow-hidden rounded-2xl shadow-md mt-10">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.99104884665!2d3.3224909736684927!3d6.648029993346613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b914c3d5340eb%3A0x6c74ed41d7f0a1b9!2s5%20Bucknor%20Savage%20Blvd%2C%20Ojodu%2C%20Lagos%20101232%2C%20Lagos!5e0!3m2!1sen!2sng!4v1744125063736!5m2!1sen!2sng"
               width="100%"

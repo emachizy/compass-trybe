@@ -31,7 +31,7 @@ const TourSearch = () => {
   return (
     <form
       onSubmit={handleSearch}
-      className="bg-white p-4 md:p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-4 w-full max-w-4xl mx-auto mt-8"
+      className="bg-white p-4 md:p-6 rounded-lg flex flex-col md:flex-row items-center gap-4 w-full max-w-4xl mx-auto mt-8 shadow-2xl shadow-amber-300"
     >
       {/* Location Input */}
       <input

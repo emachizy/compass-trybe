@@ -46,6 +46,12 @@ import lagos15 from "../src/assets/images/lagos/lagos15.jpg";
 import lagos16 from "../src/assets/images/lagos/lagos16.jpg";
 import lagos17 from "../src/assets/images/lagos/lagos17.jpg";
 
+import sliderImg1 from "../src/assets/images/header-images/sliderImg1.jpg";
+import sliderImg2 from "../src/assets/images/header-images/sliderImg2.jpg";
+import sliderImg3 from "../src/assets/images/header-images/sliderImg3.jpg";
+import sliderImg4 from "../src/assets/images/header-images/sliderImg4.jpg";
+import sliderImg5 from "../src/assets/images/header-images/sliderImg5.jpg";
+
 export const trips = [
   {
     id: 1,
@@ -220,5 +226,37 @@ export const testimonials = [
     image: lagos7,
     feedback:
       "Using Imagify has significantly improved how I present my photos online. It's intuitive and efficient.",
+  },
+];
+
+export const slides = [
+  {
+    image: sliderImg1,
+    text: " Make the most of your time here, We are all tourists.",
+    author: "Obiozo Onyeka",
+  },
+  {
+    image: sliderImg2,
+    text: "Adventure Awaits",
+    subtext:
+      "Embrace the thrill of the unknown — your next great story is just one trip away.",
+  },
+  {
+    image: sliderImg3,
+    text: "Discover New Places",
+    subtext:
+      "Venture beyond the familiar and find beauty in every corner of the world.",
+  },
+  {
+    image: sliderImg4,
+    text: "Unforgettable Experiences",
+    subtext:
+      "Dive into rich cultures, scenic wonders, and moments that leave a lasting imprint.",
+  },
+  {
+    image: sliderImg5,
+    text: "Your Journey Begins Here",
+    subtext:
+      "Every path starts with a single step — start yours with us today.",
   },
 ];

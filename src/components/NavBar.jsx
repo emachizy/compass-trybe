@@ -84,7 +84,7 @@ const NavBar = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="md:hidden flex items-center justify-between p-4 shadow-lg bg-white">
+      <nav className="md:hidden flex items-center justify-between p-4 shadow-lg bg-white fixed top-0 z-30 w-full pt-12">
         <Link to="/">
           <img
             src={cTrybeLogo}
