@@ -8,7 +8,7 @@ import TripsSection from "../components/TripsSection";
 import CounterSection from "../components/CounterSection";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
-import Banner from "../components/Banner";
+// import Banner from "../components/Banner";
 
 const Home = () => {
   return (
@@ -19,8 +19,14 @@ const Home = () => {
       <WhyChooseUs />
       <Itinerary />
       <TripsSection />
-      <CounterSection />
-      <Testimonials />
+
+      <div className="max-w-6xl mx-auto">
+        <CounterSection />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-12 my-10">
+        <Testimonials />
+      </div>
       <Footer />
     </>
   );

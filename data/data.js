@@ -147,3 +147,78 @@ export const trips = [
       "Badagary is one of the most beautiful Lagos peninsulas, with lush landscapes and world-famous beaches.",
   },
 ];
+
+// export const testimonials = [
+//   {
+//     name: "Donald Jackman",
+//     title: "Graphic Designer",
+//     image:
+//       "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200",
+//     rating: 5,
+//     review:
+//       "I've been using imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
+//   },
+//   {
+//     name: "Richard Nelson",
+//     title: "Content Creator",
+//     image:
+//       "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200",
+//     rating: 5,
+//     review:
+//       "Imagify helps me maintain a consistent look on my social content. Super intuitive and saves me a lot of editing time.",
+//   },
+// ];
+
+// export const Star = () => (
+//   <svg
+//     width="16"
+//     height="15"
+//     viewBox="0 0 16 15"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//   >
+//     <path
+//       d="M7.524.464a.5.5 0 0 1 .952 0l1.432 4.41a.5.5 0 0 0 .476.345h4.637a.5.5 0 0 1 .294.904L11.563 8.85a.5.5 0 0 0-.181.559l1.433 4.41a.5.5 0 0 1-.77.559L8.294 11.65a.5.5 0 0 0-.588 0l-3.751 2.726a.5.5 0 0 1-.77-.56l1.433-4.41a.5.5 0 0 0-.181-.558L.685 6.123A.5.5 0 0 1 .98 5.22h4.637a.5.5 0 0 0 .476-.346z"
+//       fill="#FF532E"
+//     />
+//   </svg>
+// );
+
+// Testimonials data
+export const testimonials = [
+  {
+    name: "Donald Jackman",
+    role: "Graphic Designer",
+    image: lagos1,
+    feedback:
+      "I've been using imagify for nearly two years, and it has been incredibly user-friendly, making my work much easier.",
+  },
+  {
+    name: "Richard Nelson",
+    role: "Content Creator",
+    image: lagos16,
+    feedback:
+      "Imagify has streamlined my workflow immensely. The simplicity and speed of the tool are unmatched.",
+  },
+  {
+    name: "Janet White",
+    role: "Photographer",
+    image: lagos17,
+    feedback:
+      "Using Imagify has significantly improved how I present my photos online. It's intuitive and efficient.",
+  },
+  {
+    name: "Janet White",
+    role: "Photographer",
+    image: lagos3,
+    feedback:
+      "Using Imagify has significantly improved how I present my photos online. It's intuitive and efficient.",
+  },
+  {
+    name: "Janet White",
+    role: "Photographer",
+    image: lagos7,
+    feedback:
+      "Using Imagify has significantly improved how I present my photos online. It's intuitive and efficient.",
+  },
+];

@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
 .header {
   padding-inline: 20px;
 }

@@ -20,10 +20,30 @@ const ImageSlider = () => {
       text: " Make the most of your time here, We are all tourists.",
       author: "Obiozo Onyeka",
     },
-    { image: sliderImg2, text: "Adventure Awaits" },
-    { image: sliderImg3, text: "Discover New Places" },
-    { image: sliderImg4, text: "Unforgettable Experiences" },
-    { image: sliderImg5, text: "Your Journey Begins Here" },
+    {
+      image: sliderImg2,
+      text: "Adventure Awaits",
+      subtext:
+        "Embrace the thrill of the unknown — your next great story is just one trip away.",
+    },
+    {
+      image: sliderImg3,
+      text: "Discover New Places",
+      subtext:
+        "Venture beyond the familiar and find beauty in every corner of the world.",
+    },
+    {
+      image: sliderImg4,
+      text: "Unforgettable Experiences",
+      subtext:
+        "Dive into rich cultures, scenic wonders, and moments that leave a lasting imprint.",
+    },
+    {
+      image: sliderImg5,
+      text: "Your Journey Begins Here",
+      subtext:
+        "Every path starts with a single step — start yours with us today.",
+    },
   ];
 
   const whatsappNumber = "23409066060938"; // Replace with your actual number
@@ -53,9 +73,13 @@ const ImageSlider = () => {
             <h2 className="text-white text-xl md:text-3xl lg:text-5xl font-bold opacity-0 fade-in">
               {slide.text}
             </h2>
+            <p className="text-white text-xs md:text-lg lg:text-xl md:max-w-96 max-w-64 text-center opacity-0 fade-in">
+              {slide.subtext}
+            </p>
             <p className="text-white text-xs md:text-xs lg:text-xs font-stretch-50% opacity-0 fade-in">
               {slide.author}
             </p>
+
             {/* "Book Now" Button */}
 
             <a
