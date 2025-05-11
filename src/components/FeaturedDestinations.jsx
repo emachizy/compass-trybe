@@ -1,0 +1,68 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { destinations } from "../../data/data";
+
+const filters = ["All", "Lagos", "Abeokuta", "Ibadan", "Enugu"];
+
+export default function FeaturedDestinations() {
+  const [selectedFilter, setSelectedFilter] = useState("All");
+
+  const filtered =
+    selectedFilter === "All"
+      ? destinations
+      : destinations.filter((dest) => dest.region === selectedFilter);
+
+  return (
+    <section className="py-16 px-4 max-w-7xl mx-auto">
+      <h2 className="text-3xl font-bold mb-6 text-center">
+        Featured Destinations
+      </h2>
+
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setSelectedFilter(filter)}
+            className={`px-4 py-2 rounded-full border cursor-pointer ${
+              selectedFilter === filter
+                ? "bg-black text-white"
+                : "bg-white text-black"
+            } transition duration-200`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
+      <motion.div
+        layout
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+      >
+        <AnimatePresence>
+          {filtered.map((destination) => (
+            <motion.div
+              key={destination.id}
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="rounded-xl overflow-hidden shadow-md bg-white"
+            >
+              <img
+                src={destination.image}
+                alt={destination.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">{destination.name}</h3>
+                <p className="text-sm text-gray-500">
+                  {destination.region} · {destination.type}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+    </section>
+  );
+}

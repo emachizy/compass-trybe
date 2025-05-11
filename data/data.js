@@ -260,3 +260,34 @@ export const slides = [
       "Every path starts with a single step — start yours with us today.",
   },
 ];
+
+export const destinations = [
+  {
+    id: 1,
+    name: "Lagos, Nigeria",
+    region: "Lagos",
+    type: "Beach",
+    image: lagos11,
+  },
+  {
+    id: 2,
+    name: "Abeokuta, Nigeria",
+    region: "Abeokuta",
+    type: "Mountain",
+    image: abeokuta11,
+  },
+  {
+    id: 3,
+    name: "Ibadan, Nigeria",
+    region: "Ibadan",
+    type: "City",
+    image: abeokuta6,
+  },
+  {
+    id: 4,
+    name: "Enugu, Nigeria",
+    region: "Enugu",
+    type: "Mountain",
+    image: abeokuta4,
+  },
+];

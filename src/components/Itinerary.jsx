@@ -55,7 +55,7 @@ const events = [
     location: "Lagos, Lagos",
     description:
       "Experience the dense jungles and diverse wildlife of the Amazon Rainforest with experienced guides.",
-    image: itineraryImg4,
+    image: itineraryImg2,
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const events = [
     location: "Badagry, Lagos",
     description:
       "Experience the dense jungles and diverse wildlife of the Amazon Rainforest with experienced guides.",
-    image: itineraryImg4,
+    image: itineraryImg1,
   },
 ];
 

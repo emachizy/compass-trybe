@@ -77,7 +77,7 @@ const NavBar = () => {
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-[#fff] hover:text-[#9d9577] transition cursor-pointer"
+          className="bg-[#9d9577] text-white py-2 px-4 rounded-lg hover:bg-[#fff] hover:text-[#9d9577] transition cursor-pointer animate-pulse"
         >
           Keep me informed
         </button>
