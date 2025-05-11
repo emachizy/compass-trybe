@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { Toaster } from "sonner";
+import Banner from "./components/Banner";
 // import Footer from "./components/Footer";
 
 function App() {

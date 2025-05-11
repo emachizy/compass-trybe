@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import cTrybeLogo from "../assets/images/c-trybe-logo.png";
 import { subscribeToNewsletter } from "../utils/subscribe";
 import { toast } from "sonner";
+import Banner from "./Banner";
 
 const NavBar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -46,8 +47,10 @@ const NavBar = () => {
 
   return (
     <>
+      <Banner />
+
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center justify-between gap-6 bg-white shadow-lg py-4 px-6 fixed top-0 z-50 w-full">
+      <nav className="hidden md:flex items-center justify-between gap-6 bg-white shadow-lg py-4 px-6 fixed top-0 z-30 w-full pt-12">
         <Link to="/">
           <img
             src={cTrybeLogo}
