@@ -69,7 +69,7 @@ const CounterSection = () => {
       </div>
 
       {/* Stat cards overlapping from below */}
-      <div className="-mt-3.5 w-full max-w-6xl px-4 z-50 relative">
+      <div className="-mt-3.5 w-full max-w-6xl px-4 z-10 relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat) => (
             <div

@@ -47,12 +47,12 @@ const NavBar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center justify-between gap-6 bg-white shadow-lg py-4 px-6">
+      <nav className="hidden md:flex items-center justify-between gap-6 bg-white shadow-lg py-4 px-6 fixed top-0 z-50 w-full">
         <Link to="/">
           <img
             src={cTrybeLogo}
             alt="C-Trybe Logo"
-            className="w-24 cursor-pointer"
+            className="w-28 cursor-pointer"
           />
         </Link>
         <div className="flex justify-around gap-8 items-center space-x-6 text-gray-700 font-medium">

@@ -46,7 +46,7 @@ const Contact = () => {
 
   return (
     <>
-      <section className="bg-[#fdfdfd] py-16 px-4 sm:px-8" id="contact">
+      <section className="bg-[#fdfdfd] py-16 px-4 sm:px-8 mt-24" id="contact">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4 text-[#2e2e2e]">Contact Us</h2>
           <p className="text-gray-600 mb-10">
@@ -98,18 +98,45 @@ const Contact = () => {
                 </button>
               </form>
             </div>
-            {/* Google map iframe */}
+            {/* contact information */}
             <div className="overflow-hidden rounded-2xl shadow-md">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.99104884665!2d3.3224909736684927!3d6.648029993346613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b914c3d5340eb%3A0x6c74ed41d7f0a1b9!2s5%20Bucknor%20Savage%20Blvd%2C%20Ojodu%2C%20Lagos%20101232%2C%20Lagos!5e0!3m2!1sen!2sng!4v1744125063736!5m2!1sen!2sng"
-                width="100%"
-                height="100%"
-                className="w-full h-full min-h-[400px] border-0"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <div>
+                <h2 className="text-lg md:text-2xl text-[#9d9577] font-bold">
+                  We&apos;re alway ready to prepared to your needs
+                </h2>
+                <div className="flex flex-col md:items-start justify-start py-18 px-10 gap-10 ">
+                  <a
+                    href="tel:+2349066060938"
+                    className="font-bold animate-pulse bg-[#9d9577] p-2 rounded-full text-white "
+                  >
+                    Click to make a call
+                  </a>
+
+                  <p className="font-bold">
+                    Send in your enquiries and complaints, we'll be sure to
+                    reach out ASAP{" "}
+                    <a
+                      href="mailto:compasstrybe@gmail.com"
+                      className="text-blue-600 text-sm active:text-red-500"
+                    >
+                      here
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+          {/* Google map iframe */}
+          <div className="overflow-hidden rounded-2xl shadow-md">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.99104884665!2d3.3224909736684927!3d6.648029993346613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b914c3d5340eb%3A0x6c74ed41d7f0a1b9!2s5%20Bucknor%20Savage%20Blvd%2C%20Ojodu%2C%20Lagos%20101232%2C%20Lagos!5e0!3m2!1sen!2sng!4v1744125063736!5m2!1sen!2sng"
+              width="100%"
+              height="100%"
+              className="w-full h-full min-h-[400px] border-0"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>
