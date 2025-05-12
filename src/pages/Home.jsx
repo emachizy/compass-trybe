@@ -9,11 +9,12 @@ import CounterSection from "../components/CounterSection";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import FeaturedDestinations from "../components/FeaturedDestinations";
+import BlogList from "../components/BlogList";
 // import Banner from "../components/Banner";
 
 const Home = () => {
   return (
-    <>
+    <main>
       <Header />
       <TourSearch />
 
@@ -29,8 +30,9 @@ const Home = () => {
         <Testimonials />
       </div>
       <FeaturedDestinations />
+      <BlogList />
       <Footer />
-    </>
+    </main>
   );
 };
 

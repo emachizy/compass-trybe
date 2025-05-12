@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { Toaster } from "sonner";
 import Banner from "./components/Banner";
+import BlogDetail from "./pages/BlogDetail";
 // import Footer from "./components/Footer";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
         </Route>
       </Routes>
     </>
