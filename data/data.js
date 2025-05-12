@@ -55,9 +55,9 @@ import sliderImg5 from "../src/assets/images/header-images/sliderImg5.jpg";
 export const trips = [
   {
     id: 1,
-    name: "Snake Island, Lagos",
+    name: "J.K Randle Museum, Lagos-Nigeria",
     image: itineraryImg1,
-    tours: "Snake Island",
+    tours: "J.K Randle Museum",
     gallery: [
       itineraryImg2,
       itineraryImg3,

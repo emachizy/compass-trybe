@@ -25,8 +25,8 @@ export default function FeaturedDestinations() {
             onClick={() => setSelectedFilter(filter)}
             className={`px-4 py-2 rounded-full border cursor-pointer ${
               selectedFilter === filter
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-[#9d9577] text-white"
+                : "bg-white text-[#9d9577]"
             } transition duration-200`}
           >
             {filter}
