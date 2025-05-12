@@ -52,19 +52,52 @@ import sliderImg3 from "../src/assets/images/header-images/sliderImg3.jpg";
 import sliderImg4 from "../src/assets/images/header-images/sliderImg4.jpg";
 import sliderImg5 from "../src/assets/images/header-images/sliderImg5.jpg";
 
+// J.K Randle Museum images
+import jkrandle from "../src/assets/images/jkrandle/jkrandle.jpg";
+import jkrandle1 from "../src/assets/images/jkrandle/jkrandle1.jpg";
+import jkrandle2 from "../src/assets/images/jkrandle/jkrandle2.jpg";
+import jkrandle3 from "../src/assets/images/jkrandle/jkrandle3.jpg";
+import jkrandle4 from "../src/assets/images/jkrandle/jkrandle4.jpg";
+import jkrandle5 from "../src/assets/images/jkrandle/jkrandle5.jpg";
+import jkrandle6 from "../src/assets/images/jkrandle/jkrandle6.png";
+import jkrandle7 from "../src/assets/images/jkrandle/jkrandle7.jpg";
+import jkrandle8 from "../src/assets/images/jkrandle/jkrandle8.jpg";
+
+// Bower Tower, Ibadan-Nigeria images
+import bower_tower from "../src/assets/images/bower-tower/bower-tower.jpg";
+import bower_tower1 from "../src/assets/images/bower-tower/bower-tower1.png";
+import bower_tower2 from "../src/assets/images/bower-tower/bower-tower2.png";
+import bower_tower3 from "../src/assets/images/bower-tower/bower-tower3.png";
+import bower_tower4 from "../src/assets/images/bower-tower/bower-tower4.jpg";
+import bower_tower5 from "../src/assets/images/bower-tower/bower-tower5.png";
+
+// National Museum, Ibadan-Nigeria
+import national_museum from "../src/assets/images/national-museum/national-museum.jpg";
+import national_museum1 from "../src/assets/images/national-museum/national-museum1.jpg";
+import national_museum2 from "../src/assets/images/national-museum/national-museum2.jpg";
+import national_museum3 from "../src/assets/images/national-museum/national-museum3.jpg";
+import national_museum4 from "../src/assets/images/national-museum/national-museum4.jpg";
+// import national_museum5 from "../src/assets/images/national-museum/national-museum5.jpg";
+// import national_museum6 from "../src/assets/images/national-museum/national-museum6.jpg";
+// import national_museum7 from "../src/assets/images/national-museum/national-museum7.jpg";
+// import national_museum8 from "../src/assets/images/national-museum/national-museum8.jpg";
+// import national_museum9 from "../src/assets/images/national-museum/national-museum9.jpg";
+
 export const trips = [
   {
     id: 1,
     name: "J.K Randle Museum, Lagos-Nigeria",
-    image: itineraryImg1,
+    image: jkrandle,
     tours: "J.K Randle Museum",
     gallery: [
-      itineraryImg2,
-      itineraryImg3,
-      itineraryImg4,
-      itineraryImg2,
-      itineraryImg3,
-      itineraryImg4,
+      jkrandle1,
+      jkrandle2,
+      jkrandle3,
+      jkrandle4,
+      jkrandle5,
+      jkrandle6,
+      jkrandle7,
+      jkrandle8,
     ],
     description:
       "Snake Island is a beautiful island in Lagos, known for its beaches, temples, and vibrant culture.",
@@ -75,10 +108,10 @@ export const trips = [
     image: taqua1,
     tours: "Taqua Bay",
     gallery: [
-      taqua1,
       taqua2,
       taqua3,
       taqua4,
+      taqua9,
       taqua5,
       taqua6,
       taqua7,
@@ -88,22 +121,22 @@ export const trips = [
     description:
       "Taqua Bay is famous for its stunning white-washed buildings, blue domes, and breathtaking sunsets.",
   },
-  {
-    id: 3,
-    name: "Badagary, Lagos",
-    image: itineraryImg1,
-    tours: "Badagary",
-    gallery: [
-      itineraryImg2,
-      itineraryImg3,
-      itineraryImg4,
-      itineraryImg2,
-      itineraryImg3,
-      itineraryImg4,
-    ],
-    description:
-      "Badagary is one of the most beautiful Lagos peninsulas, with lush landscapes and world-famous beaches.",
-  },
+  // {
+  //   id: 3,
+  //   name: "Badagary, Lagos",
+  //   image: itineraryImg1,
+  //   tours: "Badagary",
+  //   gallery: [
+  //     itineraryImg2,
+  //     itineraryImg3,
+  //     itineraryImg4,
+  //     itineraryImg2,
+  //     itineraryImg3,
+  //     itineraryImg4,
+  //   ],
+  //   description:
+  //     "Badagary is one of the most beautiful Lagos peninsulas, with lush landscapes and world-famous beaches.",
+  // },
   {
     id: 4,
     name: "Abeokuta, Ogun",
@@ -151,6 +184,40 @@ export const trips = [
     ],
     description:
       "Badagary is one of the most beautiful Lagos peninsulas, with lush landscapes and world-famous beaches.",
+  },
+  {
+    id: 6,
+    name: "Bower Tower, Ibadan-Nigeria",
+    image: bower_tower,
+    tours: "Bower Tower",
+    gallery: [
+      bower_tower1,
+      bower_tower2,
+      bower_tower3,
+      bower_tower4,
+      bower_tower5,
+    ],
+    description:
+      "Bower Tower is famous for its stunning white-washed buildings, blue domes, and breathtaking sunsets.",
+  },
+  {
+    id: 7,
+    name: "National Museum, Ibadan-Nigeria",
+    image: national_museum,
+    tours: "National Museum",
+    gallery: [
+      national_museum1,
+      national_museum2,
+      national_museum3,
+      national_museum4,
+      // national_museum5,
+      // national_museum6,
+      // national_museum7,
+      // national_museum8,
+      // national_museum9,
+    ],
+    description:
+      "Bower Tower is famous for its stunning white-washed buildings, blue domes, and breathtaking sunsets.",
   },
 ];
 
@@ -264,10 +331,17 @@ export const slides = [
 export const destinations = [
   {
     id: 1,
+    name: "J.K Randle Museum, Lagos-Nigeria",
+    region: "Lagos",
+    type: "museum",
+    image: lagos11,
+  },
+  {
+    id: 5,
     name: "Lagos, Nigeria",
     region: "Lagos",
     type: "Beach",
-    image: lagos11,
+    image: jkrandle5,
   },
   {
     id: 2,
