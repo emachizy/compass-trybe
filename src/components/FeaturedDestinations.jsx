@@ -14,9 +14,14 @@ export default function FeaturedDestinations() {
 
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center">
-        Featured Destinations
-      </h2>
+      <div>
+        <p className="text-[#9d9577] text-sm capitalize text-center">
+          Destinations
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:max-w-98 mx-auto">
+          Latest from the Compass Trybe Blog
+        </h2>
+      </div>
 
       <div className="flex flex-wrap justify-center gap-3 mb-8">
         {filters.map((filter) => (

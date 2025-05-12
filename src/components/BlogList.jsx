@@ -67,7 +67,7 @@ export default function BlogList() {
         <div>
           <p className="text-[#9d9577] text-sm capitalize text-center">Blogs</p>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:max-w-98 mx-auto">
-            Words from some of our happy clients
+            Latest from the Compass Trybe Blog
           </h2>
         </div>
       </div>
