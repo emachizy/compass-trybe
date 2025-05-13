@@ -14,6 +14,10 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 1000,
   },
+  server: {
+    historyApiFallback: true, // Allows client-side routing
+  },
+
   // resolve: {
   //   alias: {
   //     "@": path.resolve(__dirname, "./src"),
