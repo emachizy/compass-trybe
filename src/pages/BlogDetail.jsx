@@ -60,7 +60,7 @@ const BlogDetails = () => {
 
   return (
     <>
-      <div className="p-4 max-w-3xl mx-auto mt-20 px-6">
+      <div className="p-4 max-w-3xl mx-auto mt-20 md:px-0 px-6">
         <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
         <div className="flex flex-wrap gap-2 text-sm text-gray-600 mb-2 py-5">
           {post?.categories?.map((cat) => (
