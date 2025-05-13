@@ -11,8 +11,16 @@ import Testimonials from "../components/Testimonials";
 import FeaturedDestinations from "../components/FeaturedDestinations";
 import BlogList from "../components/BlogList";
 // import Banner from "../components/Banner";
+import { useEffect, useState } from "react";
+import { loader } from "../components/BlogList";
 
 const Home = () => {
+  const [loaderData, setLoaderData] = useState({ posts: [] });
+
+  useEffect(() => {
+    loader().then((data) => setLoaderData(data));
+  }, []);
+
   return (
     <main>
       <Header />
@@ -30,7 +38,7 @@ const Home = () => {
         <Testimonials />
       </div>
       <FeaturedDestinations />
-      <BlogList />
+      <BlogList loaderData={loaderData} />
       <Footer />
     </main>
   );
