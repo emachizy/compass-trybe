@@ -55,7 +55,7 @@ const NavBar = () => {
           <img
             src={cTrybeLogo}
             alt="C-Trybe Logo"
-            className="w-28 cursor-pointer"
+            className="h-12 cursor-pointer"
           />
         </Link>
         <div className="flex justify-around gap-8 items-center space-x-6 text-gray-700 font-medium">
