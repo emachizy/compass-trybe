@@ -13,7 +13,7 @@ export default function FeaturedDestinations() {
       : destinations.filter((dest) => dest.region === selectedFilter);
 
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
+    <section className="py-20 px-4 max-w-7xl mx-auto">
       <div>
         <p className="text-[#9d9577] text-sm capitalize text-center">
           Destinations

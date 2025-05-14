@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
 
   return (
     <section className="why-choose-us py-12 bg-gray-100 mt-10">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 py-20">
         <p className="text-[#9d9577] text-sm capitalize text-center">
           Why choose us?
         </p>

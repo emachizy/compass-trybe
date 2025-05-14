@@ -2,9 +2,10 @@ import { useState } from "react";
 import itineraryImg1 from "../assets/images/itinerary-images/itineraryImg1.jpg";
 import itineraryImg2 from "../assets/images/itinerary-images/itineraryImg2.jpg";
 import itineraryImg3 from "../assets/images/itinerary-images/itineraryImg3.jpg";
-import itineraryImg4 from "../assets/images/itinerary-images/itineraryImg4.jpg";
+// import itineraryImg4 from "../assets/images/itinerary-images/itineraryImg4.jpg";
 // import itineraryImg5 from "../assets/images/itinerary-images/itineraryImg5.jpg";
 // import itineraryImg6 from "../assets/images/itinerary-images/itineraryImg6.jpg";
+import may_itinerary from "../assets/images/itinerary-images/may-itinerary.jpg";
 
 const events = [
   {
@@ -51,11 +52,11 @@ const events = [
     id: 5,
     month: "May",
     title: "Capture Old Lagos 2.0",
-    date: "May 25, 2025",
+    date: "May 31, 2025",
     location: "Lagos, Lagos",
     description:
       "Experience the dense jungles and diverse wildlife of the Amazon Rainforest with experienced guides.",
-    image: itineraryImg2,
+    image: may_itinerary,
   },
   {
     id: 6,
@@ -73,7 +74,7 @@ const Itinerary = () => {
   const [selectedEvent, setSelectedEvent] = useState(events[0]); // Default to first event
 
   return (
-    <section className="py-12 bg-gray-100">
+    <section className="py-20 bg-gray-100">
       <div className="max-w-6xl mx-auto px-4">
         <p className="text-[#9d9577] text-sm capitalize text-center">
           Just for You
@@ -116,7 +117,7 @@ const Itinerary = () => {
             <img
               src={selectedEvent.image}
               alt={selectedEvent.title}
-              className="w-full h-56 object-cover rounded-lg mt-4"
+              className="w-full h-56 object-contain rounded-lg mt-4"
             />
             <p className="text-gray-600 mt-4">{selectedEvent.description}</p>
           </div>
