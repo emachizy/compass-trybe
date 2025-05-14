@@ -19,7 +19,7 @@ export default function FeaturedDestinations() {
           Destinations
         </p>
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:max-w-98 mx-auto">
-          Check
+          Check out some of our recent destination
         </h2>
       </div>
 
