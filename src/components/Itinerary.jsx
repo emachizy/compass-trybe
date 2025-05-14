@@ -2,9 +2,7 @@ import { useState } from "react";
 import itineraryImg1 from "../assets/images/itinerary-images/itineraryImg1.jpg";
 import itineraryImg2 from "../assets/images/itinerary-images/itineraryImg2.jpg";
 import itineraryImg3 from "../assets/images/itinerary-images/itineraryImg3.jpg";
-// import itineraryImg4 from "../assets/images/itinerary-images/itineraryImg4.jpg";
-// import itineraryImg5 from "../assets/images/itinerary-images/itineraryImg5.jpg";
-// import itineraryImg6 from "../assets/images/itinerary-images/itineraryImg6.jpg";
+import april_itinerary from "../assets/images/itinerary-images/april-itinerary.jpg";
 import may_itinerary from "../assets/images/itinerary-images/may-itinerary.jpg";
 
 const events = [
@@ -42,11 +40,11 @@ const events = [
     id: 4,
     month: "April",
     title: "Explore Abeokuta",
-    date: "April 5, 2025",
+    date: "April 26, 2025",
     location: "Abeokuta, Ogun State",
     description:
       "Explore the dense jungles and diverse wildlife of the Amazon Rainforest with experienced guides.",
-    image: itineraryImg1,
+    image: april_itinerary,
   },
   {
     id: 5,
