@@ -1,7 +1,7 @@
-import itineraryImg1 from "../src/assets/images/itinerary-images/itineraryImg1.jpg";
-import itineraryImg2 from "../src/assets/images/itinerary-images/itineraryImg2.jpg";
-import itineraryImg3 from "../src/assets/images/itinerary-images/itineraryImg3.jpg";
-import itineraryImg4 from "../src/assets/images/itinerary-images/itineraryImg4.jpg";
+// import itineraryImg1 from "../src/assets/images/itinerary-images/itineraryImg1.jpg";
+// import itineraryImg2 from "../src/assets/images/itinerary-images/itineraryImg2.jpg";
+// import itineraryImg3 from "../src/assets/images/itinerary-images/itineraryImg3.jpg";
+// import itineraryImg4 from "../src/assets/images/itinerary-images/itineraryImg4.jpg";
 
 //taqua bay images
 import taqua9 from "../src/assets/images/taqua/taqua9.jpg";
@@ -121,22 +121,6 @@ export const trips = [
     description:
       "Taqua Bay is famous for its stunning white-washed buildings, blue domes, and breathtaking sunsets.",
   },
-  // {
-  //   id: 3,
-  //   name: "Badagary, Lagos",
-  //   image: itineraryImg1,
-  //   tours: "Badagary",
-  //   gallery: [
-  //     itineraryImg2,
-  //     itineraryImg3,
-  //     itineraryImg4,
-  //     itineraryImg2,
-  //     itineraryImg3,
-  //     itineraryImg4,
-  //   ],
-  //   description:
-  //     "Badagary is one of the most beautiful Lagos peninsulas, with lush landscapes and world-famous beaches.",
-  // },
   {
     id: 4,
     name: "Abeokuta, Ogun",
