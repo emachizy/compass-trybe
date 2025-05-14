@@ -86,7 +86,8 @@ const BlogDetails = () => {
       {/* 🧭 Related Posts */}
       {relatedPosts.length > 0 && (
         <div className="max-w-4xl mx-auto mt-12 px-6">
-          <h2 className="text-2xl font-semibold mb-4">Related Posts</h2>
+          <h2 className="text-2xl font-semibold">Related Posts</h2>
+          <div className="mb-4 bg-[#9d9577] h-0.5 w-16"></div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {relatedPosts.map((related) => (
