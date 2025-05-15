@@ -49,6 +49,7 @@ export default function BlogList({ loaderData = { posts: [] } }) {
                   src={urlFor(post.mainImage).width(800).url()}
                   alt={post?.title || "No image available"}
                   className="w-full h-52 object-cover mb-6"
+                  loading="lazy"
                 />
               ) : (
                 <div className="w-40 h-40 my-4 rounded bg-gray-50 flex items-center justify-center text-gray-500">

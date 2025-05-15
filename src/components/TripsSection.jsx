@@ -40,6 +40,7 @@ const TripsSection = () => {
           src={selectedTrip.image}
           alt={selectedTrip.name}
           className="w-full h-64 object-cover rounded-lg mt-6"
+          loading="lazy"
         />
         <div className="mt-6 grid grid-cols-3 gap-4">
           {selectedTrip.gallery.map((img, i) => (
@@ -55,6 +56,7 @@ const TripsSection = () => {
                 src={img}
                 alt={`Gallery ${i + 1}`}
                 className="w-full h-48 object-cover rounded-lg shadow-md"
+                loading="lazy"
               />
             </div>
           ))}
@@ -84,6 +86,7 @@ const TripsSection = () => {
                 src={selectedImage}
                 alt="Full View"
                 className="max-h-[80vh] max-w-[90vw] object-contain rounded-lg shadow-lg"
+                loading="lazy"
               />
               <p className="text-white mt-4 text-lg">
                 Image {currentImageIndex + 1} of {selectedTrip.gallery.length}

@@ -101,6 +101,7 @@ const BlogDetails = () => {
                     src={urlFor(related.mainImage).width(400).height(200).url()}
                     alt={related.title}
                     className="w-full h-40 object-cover rounded-t"
+                    loading="lazy"
                   />
                 ) : (
                   <div className="w-full h-40 bg-gray-200 flex items-center justify-center text-sm text-gray-500 rounded-t">

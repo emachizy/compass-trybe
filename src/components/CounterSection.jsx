@@ -6,7 +6,7 @@ import {
   FaSmile,
 } from "react-icons/fa";
 
-import cLogo from "../assets/images/c-trybe-logo.png";
+import abeokuta from "../assets/images/abeokuta/abeokuta1.jpg";
 
 const stats = [
   {
@@ -46,7 +46,10 @@ const CounterSection = () => {
       {/* Background image with overlay */}
       <div
         className="h-[300px] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${cLogo})`, backgroundSize: "cover" }}
+        style={{
+          backgroundImage: `url(${abeokuta})`,
+          backgroundSize: "contain",
+        }}
       >
         <div className="absolute inset-0 bg-black/50 bg-opacity-50">
           <div className="flex flex-col justify-center items-center h-full">

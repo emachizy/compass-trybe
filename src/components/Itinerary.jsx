@@ -116,6 +116,7 @@ const Itinerary = () => {
               src={selectedEvent.image}
               alt={selectedEvent.title}
               className="w-full h-56 object-contain rounded-lg mt-4"
+              loading="lazy"
             />
             <p className="text-gray-600 mt-4">{selectedEvent.description}</p>
           </div>

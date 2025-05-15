@@ -25,7 +25,12 @@ const StarIcon = () => (
 // TestimonialCard component
 const TestimonialCard = ({ name, role, image, feedback }) => (
   <div className="w-full flex flex-col items-center p-10 rounded-lg bg-white shadow-2xl">
-    <img className="h-20 w-20 rounded-full" src={image} alt={name} />
+    <img
+      className="h-20 w-20 rounded-full"
+      src={image}
+      alt={name}
+      loading="lazy"
+    />
     <h2 className="text-lg text-gray-900 font-medium mt-2">{name}</h2>
     <p className="text-sm text-gray-500">{role}</p>
     <div className="flex items-center justify-center mt-3 gap-1">

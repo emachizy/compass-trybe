@@ -57,6 +57,7 @@ export default function FeaturedDestinations() {
                 src={destination.image}
                 alt={destination.name}
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold">{destination.name}</h3>
@@ -68,6 +69,8 @@ export default function FeaturedDestinations() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {motion}
     </section>
   );
 }
