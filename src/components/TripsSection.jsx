@@ -25,7 +25,7 @@ const TripsSection = () => {
 
   if (selectedTrip) {
     return (
-      <section className="max-w-4xl mx-auto py-10 px-4">
+      <section className="max-w-4xl mx-auto py-20 px-4">
         <button
           onClick={handleBack}
           className="bg-gray-700 text-white px-4 py-2 rounded-md mb-4 cursor-pointer"
