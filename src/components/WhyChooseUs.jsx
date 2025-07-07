@@ -48,13 +48,15 @@ const WhyChooseUs = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group bg-white shadow-lg rounded-xl p-6 flex flex-col gap-4 items-start border border-gray-200 transition-all duration-300 hover:bg-[#9d9577] hover:text-white hover:shadow-xl"
+              className="group bg-white shadow-lg rounded-xl p-6 flex flex-col gap-4 items-start border border-gray-200  hover:bg-[#9d9577] hover:text-white hover:shadow-2xl transition-all duration-700"
             >
-              <div className="group-hover:animate-bounce">{feature.icon}</div>
-              <h3 className="text-xl font-semibold group-hover:text-white">
+              <div className="group-hover:animate-bounce transition-all duration-700">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-semibold group-hover:text-white transition-all duration-700">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 group-hover:text-white">
+              <p className="text-gray-600 group-hover:text-white transition-all duration-700">
                 {feature.description}
               </p>
             </div>

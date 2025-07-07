@@ -50,7 +50,7 @@ const NavBar = () => {
       <Banner />
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center justify-between gap-6 bg-white shadow-lg py-4 px-6 fixed top-0 z-30 w-full pt-12">
+      <nav className="hidden md:flex items-center justify-between gap-6 bg-white shadow-lg py- px-6 fixed top-0 z-30 w-full pt-12">
         <Link to="/">
           <img
             src={cTrybeLogo}

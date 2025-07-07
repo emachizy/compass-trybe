@@ -23,7 +23,7 @@ const ImageSlider = () => {
       autoplay={{ delay: 4000, disableOnInteraction: false }}
       effect="fade" // Smooth fade effect
       speed={5000} // Controls transition speed
-      className="w-full h-[300px] md:h-[500px] lg:h-[700px]"
+      className="w-full h-[300px] md:h-[500px] lg:h-[500px]"
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index} className="relative">
